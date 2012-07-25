@@ -14,6 +14,7 @@ use Tonic\Resource,
  * annotations allow this resource to match multiple URLs.
  *
  * @uri /store
+ * @uri /store/:categoryId
  */
 class Store extends Resource
 {
@@ -32,6 +33,11 @@ class Store extends Resource
      */
     public function getItems($categoryId = 1)
     {
+        $storeModel = new \BAServer\Models\Store();
+        $storeItems = $storeModel->getItems($categoryId);
+
+        var_dump($storeItems);
+
         return 'Items for category ' . $categoryId;
     }
 }

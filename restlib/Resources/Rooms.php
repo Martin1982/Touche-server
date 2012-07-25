@@ -30,6 +30,10 @@ class Rooms extends Resource
      */
     public function showRooms()
     {
+        $roomModel = new \BAServer\Models\Room();
+        $rooms = $roomModel->getRooms();
+
+        var_dump($rooms);
         return 'Rooms';
     }
 }

@@ -26,6 +26,21 @@ class User extends \BAServer\Models\Base
         return $resultData;
     }
 
+    public function getUserByToken($token) {
+        $dbConn = $this->_databaseConnection;
+        $statement = $dbConn->prepare("SELECT userid FROM user WHERE token=:token");
+        $statement->bindValue(':token', $token, SQLITE3_TEXT);
+
+        $result = $statement->execute();
+        $resultData = $result->fetchArray();
+
+        if (!is_array($resultData) || count($resultData) === 0) {
+            return false;
+        }
+
+        return $resultData;
+    }
+
     public function addUser($username, $password) {
         $dbConn = $this->_databaseConnection;
         $statement = $dbConn->prepare("INSERT INTO user (username, password) VALUES (:username, :password)");

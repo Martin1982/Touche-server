@@ -25,6 +25,10 @@ class AuthToken extends Resource
      */
     public function doTokenAuth($token)
     {
+        $userModel = new \BAServer\Models\User();
+        $userData = $userModel->getUserByToken($token);
+
+        var_dump($userData);
         return 'Authenticating token ' . $token;
     }
 }

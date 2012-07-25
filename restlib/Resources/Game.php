@@ -13,7 +13,8 @@ use Tonic\Resource,
  * The @uri annotation routes requests that match that URL to this resource. Multiple
  * annotations allow this resource to match multiple URLs.
  *
- * @uri /game
+ * @uri /game/:name
+ * @uri /game/:name/:max
  */
 class Game extends Resource
 {
@@ -33,6 +34,11 @@ class Game extends Resource
      */
     public function createGame($name, $max = 2)
     {
+        $gameModel = new \BAServer\Models\Game();
+        $gameDetails = $gameModel->add($name, $max);
+
+        var_dump($gameDetails);
+
         return 'Starting ' . $name . ' with ' . $max . ' users';
     }
 }
