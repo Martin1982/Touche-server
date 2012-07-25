@@ -3,9 +3,10 @@ error_reporting(E_ALL);
 ini_set('display_errors', 1);
 
 require_once '../vendor/peej/tonic/src/Tonic/Autoloader.php';
+require_once '../restlib/Autoloader.php';
 
 $config = array(
-    'load' => array('resources/*.php')
+    'load' => array('../restlib/resources/*.php')
 );
 
 $app = new Tonic\Application($config);
