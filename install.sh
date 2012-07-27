@@ -1,3 +1,3 @@
 curl http://getcomposer.org/installer | php
 php composer.phar install
-cd nodes && node install socket.io && node install sqlite3
+cd nodes && npm install socket.io && npm install sqlite3
