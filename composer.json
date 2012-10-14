@@ -1,5 +1,6 @@
 {
 	"require": {
-		"peej/tonic": "dev-master"
+		"peej/tonic": "dev-master",
+		"zendframework/zendframework": "dev-master"
     }
 }
